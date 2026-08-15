@@ -1,15 +1,7 @@
 // Filas extraídas del Reglamento de Construcciones y Normas Técnicas
 // para el Municipio de Chihuahua. Cada fila: [espacio/elemento, artículo, descripción]
 module.exports = [
-  // --- Generalidades de la vivienda ---
-  ["Vivienda unifamiliar", "Artículo 13", "Dentro del género habitación se clasifica como vivienda mínima, de una sola vivienda."],
-  ["Vivienda progresiva", "Artículo 13", "La obra por etapas se limita a 40 m² por etapa, con un tope de 120 m², dos niveles como máximo y claros no mayores de 4 m."],
-  ["Primera pieza de vivienda progresiva", "Artículo 26", "Se puede levantar sin licencia hasta 16 m² con sus servicios sanitarios, dando aviso por escrito y respetando uso de suelo, alineamiento y restricciones."],
-  ["Fosa séptica o albañal", "Artículo 26", "Instalarlos en casa habitación no necesita licencia."],
-  ["Apertura de claros", "Artículo 26", "Hasta 1.50 m como máximo en construcciones de hasta dos niveles, si no se afectan elementos estructurales."],
-  ["Impermeabilización de azotea", "Artículo 26", "Entra como mantenimiento y no pide licencia mientras no se toquen elementos estructurales."],
-  ["Demolición de cuarto aislado", "Artículo 26", "Se permite sin licencia hasta 16 m² si está desocupado y no se afecta la estabilidad del resto."],
-  ["Autoconstrucción", "Artículo 17", "Quien construya o amplíe su casa hasta 60 m² en zona habitacional de alta densidad recibe asesoría gratuita con proyectos tipo y puede quedar exento del pago de derechos."],
+  // --- Programa de la vivienda ---
   ["Vivienda mínima", "Artículo 53", "El diseño arquitectónico y estructural debe permitir que la casa crezca hasta integrar tres recámaras, dos baños, sala, comedor y cocina."],
 
   // --- Dimensiones mínimas, artículo 54 ---
@@ -162,7 +154,6 @@ module.exports = [
   ["Encharcamiento", "Artículo 181", "Los techos se diseñan para no fallar por acumulación progresiva de agua."],
   ["Cimentación", "Artículo 183", "Toda construcción se apoya en una cimentación apropiada, y nunca se desplanta sobre tierra vegetal ni sobre lechos sueltos."],
   ["Cimentar sobre relleno", "Artículo 184", "Sólo se acepta sobre rellenos artificiales cuando se demuestre que cumplen la capacidad de carga y estabilidad del diseño."],
-  ["Estudio de mecánica de suelos", "Artículo 185", "Es obligatorio en edificaciones de cuatro niveles o más, y cuando la Dirección lo juzgue necesario."],
   ["Revisión de colindancias", "Artículo 186", "Hay que investigar cimentación, estabilidad, asentamiento, agrietamiento y desplome de las construcciones vecinas."],
   ["Profundidad de desplante", "Artículo 187", "La subestructura se desplanta a una profundidad donde sea mínimo el deterioro del suelo por erosión o intemperismo."],
 
@@ -173,29 +164,16 @@ module.exports = [
   ["Pérdida de energía", "Artículo 190", "En casa habitación unifamiliar o multifamiliar se procura no pasar de 2 W/m³K."],
   ["Instalación de gas", "Artículo 190", "Las instalaciones de gas LP y gas natural cumplen con las normas oficiales mexicanas."],
   ["Registros de teléfono y datos", "Artículo 191", "Se dejan registros, ductos y preparaciones en cualquier edificación con más de 100 m² construidos."],
-  ["Elevador", "Artículo 193", "Se exige de cuatro niveles o 12 m en adelante, pero la edificación para habitación unifamiliar queda exceptuada."],
   ["Densidad de población", "Artículo 197", "En edificios para habitación se considera 1.85 personas por recámara."],
   ["Cajas de registro", "Artículo 203", "Se colocan a 0.60 metros del nivel del suelo y en lugares accesibles."],
   ["Registros por nivel", "Artículo 203", "En edificaciones para habitación puede haber un registro de distribución por cada dos niveles."],
   ["Líneas de distribución horizontal", "Artículo 204", "Van en tubería de fierro o plástico de 13 milímetros, con cajas de registro cada 20 metros como máximo a 0.60 m sobre el nivel del piso."],
-  ["Clima artificial y calentadores", "Artículo 202", "Se usan de manera que no causen molestias, ruidos ni vibraciones y no pongan en peligro a las personas ni a la edificación."],
-  ["Proyecto de gas combustible", "Artículo 230", "Contiene el isométrico de la instalación con consumos, tuberías y caída máxima de presión, firmado por el perito."],
 
-  // --- Prevención de incendios ---
-  ["Clasificación de riesgo menor", "Artículo 208", "Son las edificaciones de hasta 25.00 metros de altura, hasta 250 ocupantes y hasta 3,000 m²."],
-  ["Extintores", "Artículo 216", "Se piden por piso en edificaciones de riesgo menor, con excepción de los edificios destinados a habitación de hasta cinco niveles."],
+  // --- Chimenea, muros y plafones ---
   ["Chimenea", "Artículo 224", "El tiro conduce humos y gases al exterior por la parte superior, con la salida a 1.50 metros sobre el nivel de la azotea y diseñada para poder deshollinarse."],
   ["Materiales junto a la chimenea", "Artículo 224", "Los materiales inflamables y los elementos decorativos quedan a no menos de 60 centímetros."],
   ["Campana de estufa", "Artículo 225", "Lleva filtros de grasa y sistema contra incendio, aunque las viviendas unifamiliares están exceptuadas."],
   ["Ductos de alta temperatura", "Artículo 214", "Los tiros de chimenea, campanas de extracción o ductos que conduzcan gases a más de 80 °C se separan mínimo 60 cm de los elementos estructurales de madera."],
   ["Muros interiores", "Artículo 229", "Los que separan departamentos o locales, o separan la zona de habitación de las circulaciones generales, se construyen a prueba de fuego y cubren todo el espacio vertical entre pisos."],
   ["Plafones", "Artículo 223", "Se construyen con materiales cuya resistencia al fuego sea de una hora por lo menos."],
-
-  // --- Ejecución y conservación de la obra ---
-  ["Conservación del inmueble", "Artículo 48", "El propietario mantiene la construcción en buenas condiciones de estabilidad, servicio e higiene, y la fachada en buen estado para no ser peligro."],
-  ["Tapial fijo", "Artículo 242", "En obras a menos de diez metros de la vía pública, cubriendo todo el frente, con altura mínima de 2.40 metros."],
-  ["Paso cubierto", "Artículo 242", "En obras de más de diez metros de altura, con 2.40 metros de altura y 1.20 metros de anchura libre cuando menos."],
-  ["Servicios para trabajadores", "Artículo 244", "Agua potable, un sanitario portátil, excusado o letrina por cada 25 trabajadores y nunca menos de uno, más un botiquín de primeros auxilios."],
-  ["Bitácora de obra", "Artículo 233", "El director responsable la mantiene en la obra, encuadernada y foliada, a disposición de los inspectores."],
-  ["Limpieza durante la obra", "Artículo 233", "Se mantienen limpias las banquetas y las calles frente a la obra, y al terminar se retiran materiales y escombro."],
 ];
