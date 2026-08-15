@@ -90,6 +90,7 @@ module.exports = [
       "Altura máxima amarrada al ancho de la calle. Entre más angosta la calle, más baja se queda la construcción.",
     filas: [
       ["Altura máxima del edificio", "Ningún punto puede estar más alto que dos veces su distancia mínima al plano vertical sobre el alineamiento de la acera opuesta."],
+      ["Predio frente a plaza o jardín", "En esos casos el alineamiento opuesto se localiza 5 metros hacia adentro del alineamiento de la acera opuesta."],
     ],
   },
   {
@@ -200,6 +201,7 @@ module.exports = [
     resumen: "Qué tan lejos puede quedar el punto más apartado de la casa respecto de una salida.",
     filas: [
       ["Distancia a una salida", "Desde cualquier punto interior hasta una puerta, circulación horizontal, escalera o rampa, máximo 30 metros medidos sobre la línea de recorrido."],
+      ["Excepción de la distancia", "En edificaciones de oficinas, comercio e industria la distancia puede ser de 40 metros como máximo."],
     ],
   },
   {
@@ -258,6 +260,7 @@ module.exports = [
     resumen: "Puertas. Una sola altura para todas y luego un ancho distinto según el local al que sirven.",
     filas: [
       ["Altura de las puertas", "Las puertas de acceso, intercomunicación y salida llevan 2.03 metros de altura cuando menos."],
+      ["Hasta cuántos usuarios sirve la tabla", "Los anchos de la tabla valen hasta por 100 usuarios; si se considera una población mayor, el ancho mínimo se incrementa 60 centímetros por cada 100 usuarios o fracción."],
       ["Puerta de acceso principal", "Ancho mínimo de 0.90 metros."],
       ["Puerta de locales habitables", "Ancho mínimo de 0.75 m."],
       ["Puerta de cocina", "Ancho mínimo de 0.75 m."],
@@ -312,6 +315,7 @@ module.exports = [
     resumen: "La excepción para iluminar por el muro de colindancia, y a partir de qué altura se permite.",
     filas: [
       ["Bloque de vidrio en colindancia", "Se permite iluminar con bloques de vidrio prismático traslúcido a partir de 7.20 metros sobre el nivel de banqueta, sin que sustituya las ventanas y domos mínimos."],
+      ["Sin derechos a futuro", "Esa iluminación no crea derechos frente a futuras edificaciones vecinas que lleguen a obstruirla."],
     ],
   },
   {
@@ -359,6 +363,10 @@ module.exports = [
     filas: [
       ["Alberca, andadores", "Llevan superficie áspera o de material antiderrapante en las orillas, construidos de manera que no se hagan encharcamientos."],
       ["Alberca, escaleras", "Donde la profundidad sea mayor de 90 centímetros se pone una escalera por cada 25 metros lineales de perímetro."],
+      ["Altura de trampolines y plataformas", "Las alturas máximas permitidas son de 3.00 metros para los trampolines y de 10.00 metros para las plataformas."],
+      ["Ancho de trampolines y plataformas", "El trampolín lleva 0.50 metros de ancho y la plataforma 2.00 metros como mínimo, en los dos casos con superficie antiderrapante."],
+      ["Escalera del trampolín", "De tramos rectos, con huellas de 25 centímetros cuando menos y peraltes de 18 centímetros como máximo."],
+      ["Barandal del trampolín", "Se coloca a 90 centímetros de altura en las escaleras y en las plataformas."],
     ],
   },
   {
@@ -380,6 +388,7 @@ module.exports = [
     resumen: "A partir de qué altura la fachada obliga a estudiar la sombra que va a echar sobre los vecinos.",
     filas: [
       ["Proyección de sombras", "Las edificaciones de diez metros o más sobre el nivel de banqueta presentan el estudio de las sombras que provocarían sobre los predios vecinos a lo largo del día y del año."],
+      ["Restricciones adicionales", "Si las sombras afectan viviendas vecinas, el Municipio puede imponer restricciones extra de ubicación en el predio o de altura."],
     ],
   },
   {
@@ -393,7 +402,7 @@ module.exports = [
     art: "Artículo 100",
     resumen: "Acabado de la fachada que da a la colindancia y al patio del vecino.",
     filas: [
-      ["Fachada de colindancia", "Las de cinco niveles o más que formen parte de los paramentos de patios de iluminación y ventilación vecinos llevan acabados de colores claros."],
+      ["Fachada de colindancia", "Las de cinco niveles o más que formen parte de los paramentos de patios de iluminación y ventilación de las edificaciones vecinas, en zonas urbanas habitacionales según los programas parciales, llevan acabados de colores claros."],
     ],
   },
   {
@@ -437,7 +446,7 @@ module.exports = [
     resumen: "Cuando la azotea se usa, deja de ser techo y se calcula como piso.",
     filas: [
       ["Techo de paso peatonal", "Si el techo se usa como paso peatonal se diseña para 300 kg/m²."],
-      ["Techo de jardín o reunión", "Si se usa como jardín o área de reunión se diseña para 500 kg/m²."],
+      ["Techo de jardín o ensamblaje", "Si se usa como jardín o como área de ensamblaje se diseña para 500 kg/m²."],
     ],
   },
   {
