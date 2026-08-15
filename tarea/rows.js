@@ -1,6 +1,11 @@
 // Filas extraídas del Reglamento de Construcciones y Normas Técnicas
 // para el Municipio de Chihuahua. Cada fila: [espacio/elemento, artículo, descripción]
 module.exports = [
+  // --- Criterios generales del proyecto ---
+  ["Altura de la construcción", "Artículo 2", "Se define como la dimensión vertical de la construcción, tomada a partir del nivel medio longitudinal de la guarnición hacia arriba."],
+  ["Altura máxima permitida", "Artículo 2", "Es la medida en metros que fijan los planes o programas, contada desde el nivel medio longitudinal de la guarnición hasta la parte más alta de la construcción."],
+  ["Condiciones del proyecto", "Artículo 52", "El proyecto arquitectónico debe garantizar habitabilidad, funcionamiento, higiene, imagen urbana, comunicación, seguridad estructural, integración al contexto y acondicionamiento ambiental."],
+
   // --- Programa de la vivienda ---
   ["Vivienda mínima", "Artículo 53", "El diseño arquitectónico y estructural debe permitir que la casa crezca hasta integrar tres recámaras, dos baños, sala, comedor y cocina."],
 
@@ -48,6 +53,8 @@ module.exports = [
   ["Predio en esquina", "Artículo 58", "Sobre la calle angosta se puede usar la altura que corresponde a la calle ancha, hasta una distancia de dos veces el ancho de la calle angosta medida desde la esquina."],
   ["Restricción hacia el norte", "Artículo 59", "Si el límite es orientación norte y colinda con predios habitacionales, se deja una restricción del 15 por ciento de la altura máxima."],
   ["Separación por sismo", "Artículo 60", "Hay que verificar la separación con predios y edificaciones colindantes según el artículo de separaciones mínimas de diseño por sismo."],
+  ["Separación entre edificios plurifamiliares", "Artículo 61", "Hasta 50 viviendas, la separación es cuando menos la dimensión mínima que se pide para patios de iluminación y ventilación, según el tipo de local y la altura promedio de los paramentos."],
+  ["Separación en conjuntos habitacionales", "Artículo 62", "En más de 50 viviendas, la separación en dirección norte-sur es por lo menos del 60 por ciento de la altura promedio de los edificios, y en dirección este-oeste por lo menos del 100 por ciento."],
   ["Barda del predio", "Artículo 63", "En cualquier edificación se construye una barda que delimite el predio, con altura mínima de un metro."],
   ["Tapajuntas", "Artículo 63", "Si ya existe construcción colindante se coloca tapajuntas y se resuelve la infiltración del agua."],
   ["Protección de la colindancia", "Artículo 237", "Las separaciones se protegen con tapajuntas o botaguas que impidan la entrada de agua y basura, y se garantiza el aislamiento acústico entre edificaciones."],
@@ -71,6 +78,7 @@ module.exports = [
 
   // --- Basura ---
   ["Depósito de basura", "Artículo 68", "Se asigna un espacio ventilado y a prueba de roedores, colocado de forma que facilite el acceso del servicio de recolección."],
+  ["Índice del depósito de basura", "Artículo 69", "En habitacional plurifamiliar se calculan 0.005 metros cúbicos por cada metro cuadrado construido."],
 
   // --- Circulaciones ---
   ["Pasillo interior de la vivienda (ancho)", "Artículo 70", "Ancho mínimo de 0.90 m."],
@@ -79,6 +87,7 @@ module.exports = [
   ["Pasillo común a dos o más viviendas (altura)", "Artículo 70", "Altura mínima de 2.30 m."],
   ["Longitud del pasillo", "Artículo 70", "Estas medidas aplican cuando la circulación no excede de 6.00 m de longitud."],
   ["Distancia a una salida", "Artículo 71", "Desde cualquier punto interior hasta una puerta, circulación horizontal, escalera o rampa, máximo 30 metros medidos sobre la línea de recorrido."],
+  ["Aumento de la distancia a la salida", "Artículo 72", "Esa distancia se puede incrementar hasta un 50 por ciento si la edificación cuenta con sistema de extinción de fuego."],
 
   // --- Escaleras ---
   ["Escalera o rampa", "Artículo 74", "Toda edificación comunica sus niveles con escaleras o rampas peatonales, aunque tenga elevador o montacargas."],
@@ -118,6 +127,11 @@ module.exports = [
   ["Puerta de locales complementarios", "Artículo 77", "Ancho mínimo de 0.60 m."],
   ["Puerta hacia la vía pública", "Artículo 77", "Su anchura total es por lo menos 1.25 veces la suma de las anchuras reglamentarias de las puertas entre vestíbulo y salas."],
 
+  // --- Salidas ---
+  ["Salida de emergencia", "Artículo 78", "Debe permitir desalojar cada nivel sin atravesar locales de servicio como cocinas y bodegas."],
+  ["Puerta que da a la escalera", "Artículo 78", "Abre sobre un descanso cuya longitud de ancho no será menor que el ancho de la puerta."],
+  ["Apertura de la puerta de salida", "Artículo 78", "Lleva un mecanismo que permita abrirla desde dentro con un simple empuje, y la fuerza para abrirla por completo no debe exceder de 20 kilogramos."],
+
   // --- Iluminación y ventanas ---
   ["Iluminación natural", "Artículo 83", "Los locales habitables y la cocina doméstica se iluminan con ventanas que den directamente a la vía pública, terrazas, azoteas, superficies descubiertas o patios."],
   ["Ventanas hacia la colindancia", "Artículo 83", "Por ningún motivo se permiten, salvo lo que autoriza el artículo 86."],
@@ -147,6 +161,32 @@ module.exports = [
   ["Cocina doméstica", "Artículo 89", "Si se ventila con medios artificiales, 10 cambios de aire por hora."],
   ["Corredores y pasillos", "Artículo 89", "Un cambio de aire por hora, y puede ser a través de otros locales."],
 
+  // --- Alberca ---
+  ["Alberca, andadores", "Artículo 94", "Llevan superficie áspera o de material antiderrapante en las orillas, construidos de manera que no se hagan encharcamientos."],
+  ["Alberca, escaleras", "Artículo 94", "Donde la profundidad sea mayor de 90 centímetros se pone una escalera por cada 25 metros lineales de perímetro."],
+
+  // --- Fachadas e imagen urbana ---
+  ["Fachada en zona de patrimonio", "Artículo 96", "En zonas de patrimonio histórico, artístico o arqueológico se respetan las restricciones de altura, materiales, acabados, colores y aberturas que señalen el INAH, el INBAL y el Municipio."],
+  ["Estudio de imagen urbana", "Artículo 97", "Se acompaña el levantamiento de las fachadas de la manzana y de las construcciones vecinas, el reporte fotográfico y la justificación de cómo se integra el proyecto al entorno."],
+  ["Proyección de sombras", "Artículo 98", "Las edificaciones de diez metros o más sobre el nivel de banqueta presentan el estudio de las sombras que provocarían sobre los predios vecinos a lo largo del día y del año."],
+  ["Vidrio reflejante en fachada", "Artículo 99", "Se permite siempre que se demuestre con estudios de asoleamiento y reflexión espectral que no provoca deslumbramientos ni aumenta la carga térmica de las edificaciones vecinas."],
+  ["Fachada de colindancia", "Artículo 100", "Las de cinco niveles o más que formen parte de los paramentos de patios de iluminación y ventilación vecinos llevan acabados de colores claros."],
+
+  // --- Cargas que se toman en cuenta ---
+  ["Carga viva en casa habitación", "Artículo 132", "La Tabla 11 fija 200 kg/m² como carga uniforme mínima para casas habitación."],
+  ["Carga concentrada", "Artículo 133", "Se supone repartida en un área de 0.50 m², y para ocupaciones distintas al comercio, industria, bodega y estacionamiento público es de 100 kilogramos."],
+  ["Carga viva reducida", "Artículo 136", "Los elementos con área de influencia mayor a 36 m² se pueden diseñar con carga viva reducida según la ecuación del artículo."],
+  ["Límite de la reducción", "Artículo 137", "La carga viva reducida no baja del 50 por ciento cuando el miembro soporta un piso, ni del 40 por ciento en los demás casos."],
+  ["Carga viva en techo", "Artículo 138", "Se calcula con la fórmula Vt = 100 R1R2 y nunca resulta menor de 60 kg/m²."],
+  ["Techo transitable", "Artículo 139", "Si se usa como paso peatonal se diseña para 300 kg/m², y si se usa como jardín o área de reunión para 500 kg/m²."],
+
+  // --- Sismo ---
+  ["Zona sísmica", "Artículo 169", "Chihuahua y sus zonas circunvecinas se consideran áreas con actividad sísmica posible, así que la construcción lleva un sistema capaz de resistir cargas laterales."],
+  ["Coeficiente sísmico", "Artículo 171", "Es el cociente entre la fuerza cortante horizontal en la base de la estructura y el peso de la misma."],
+  ["Desplazamiento lateral", "Artículo 175", "No debe exceder de 0.006 veces la diferencia de elevaciones entre entrepisos, y puede subir a 0.012 veces cuando los elementos aguanten deformaciones sin daños importantes."],
+  ["Muro de sótano", "Artículo 177", "Se diseña considerando la presión lateral del suelo adyacente y el aumento de presión por sobrecargas fijas o móviles."],
+  ["Losa bajo el nivel del terreno", "Artículo 178", "Se toma en cuenta la subpresión del agua, midiendo la carga hidrostática desde el desplante de la losa hasta el nivel freático."],
+
   // --- Techos y cimentación ---
   ["Carga de nieve", "Artículo 179", "Por el clima de Chihuahua se recomienda una carga de nieve no menor a 40 kg/m²."],
   ["Nieve acumulada", "Artículo 179", "Donde el techo o alguna obstrucción provoque acumulación, la carga mínima sube a 60 kg/m²."],
@@ -173,7 +213,10 @@ module.exports = [
   ["Chimenea", "Artículo 224", "El tiro conduce humos y gases al exterior por la parte superior, con la salida a 1.50 metros sobre el nivel de la azotea y diseñada para poder deshollinarse."],
   ["Materiales junto a la chimenea", "Artículo 224", "Los materiales inflamables y los elementos decorativos quedan a no menos de 60 centímetros."],
   ["Campana de estufa", "Artículo 225", "Lleva filtros de grasa y sistema contra incendio, aunque las viviendas unifamiliares están exceptuadas."],
+  ["Ductos de instalaciones", "Artículo 220", "Se prolongan y ventilan sobre la azotea más alta a la que tengan acceso."],
+  ["Tiros o tolvas de basura", "Artículo 221", "Se prolongan por arriba de las azoteas, y sus compuertas evitan el paso de fuego o humo de un piso a otro."],
   ["Ductos de alta temperatura", "Artículo 214", "Los tiros de chimenea, campanas de extracción o ductos que conduzcan gases a más de 80 °C se separan mínimo 60 cm de los elementos estructurales de madera."],
+  ["Espacio de la separación", "Artículo 215", "En el espacio que queda en esa separación debe permitirse la circulación del aire."],
   ["Muros interiores", "Artículo 229", "Los que separan departamentos o locales, o separan la zona de habitación de las circulaciones generales, se construyen a prueba de fuego y cubren todo el espacio vertical entre pisos."],
   ["Plafones", "Artículo 223", "Se construyen con materiales cuya resistencia al fuego sea de una hora por lo menos."],
 ];

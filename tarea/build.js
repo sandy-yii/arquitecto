@@ -2,9 +2,18 @@ const fs = require("fs");
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
   WidthType, AlignmentType, PageBreak, BorderStyle, ShadingType, VerticalAlign,
+  VerticalMergeType,
 } = require("docx");
 
-const rows = require("./rows");
+const raw = require("./rows");
+
+// Se ordena por número de artículo para que todas las filas de un mismo
+// artículo queden juntas y su celda se pueda combinar como subserie.
+const artNum = (a) => parseInt(a.match(/\d+/)[0], 10);
+const rows = raw
+  .map((r, i) => ({ r, i }))
+  .sort((a, b) => artNum(a.r[1]) - artNum(b.r[1]) || a.i - b.i)
+  .map((x) => x.r);
 
 const FONT = "Arial";
 
@@ -33,12 +42,14 @@ const cell = (text, width, opts = {}) =>
   new TableCell({
     width: { size: width, type: WidthType.DXA },
     verticalAlign: VerticalAlign.CENTER,
+    verticalMerge: opts.merge,
     shading: opts.shaded
       ? { type: ShadingType.CLEAR, fill: "D9D9D9", color: "auto" }
       : undefined,
     margins: { top: 60, bottom: 60, left: 100, right: 100 },
     children: [
       new Paragraph({
+        alignment: opts.align,
         spacing: { after: 0, line: 252 },
         children: [
           new TextRun({ text, font: FONT, size: 22, bold: !!opts.bold }),
@@ -56,16 +67,22 @@ const headerRow = new TableRow({
   ],
 });
 
-const bodyRows = rows.map(
-  ([espacio, articulo, desc]) =>
-    new TableRow({
-      children: [
-        cell(espacio, COLS[0], { bold: true }),
-        cell(articulo, COLS[1]),
-        cell(desc, COLS[2]),
-      ],
-    })
-);
+// La celda del artículo se combina verticalmente: se escribe una sola vez
+// al inicio del bloque (RESTART) y se continúa vacía en las demás (CONTINUE).
+const bodyRows = rows.map(([espacio, articulo, desc], i) => {
+  const primera = i === 0 || rows[i - 1][1] !== articulo;
+  return new TableRow({
+    children: [
+      cell(espacio, COLS[0], { bold: true }),
+      cell(primera ? articulo : "", COLS[1], {
+        merge: primera ? VerticalMergeType.RESTART : VerticalMergeType.CONTINUE,
+        bold: true,
+        align: AlignmentType.CENTER,
+      }),
+      cell(desc, COLS[2]),
+    ],
+  });
+});
 
 const thin = { style: BorderStyle.SINGLE, size: 4, color: "808080" };
 
