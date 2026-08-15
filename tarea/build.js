@@ -5,15 +5,7 @@ const {
   VerticalMergeType,
 } = require("docx");
 
-const raw = require("./rows");
-
-// Se ordena por número de artículo para que todas las filas de un mismo
-// artículo queden juntas y su celda se pueda combinar como subserie.
-const artNum = (a) => parseInt(a.match(/\d+/)[0], 10);
-const rows = raw
-  .map((r, i) => ({ r, i }))
-  .sort((a, b) => artNum(a.r[1]) - artNum(b.r[1]) || a.i - b.i)
-  .map((x) => x.r);
+const datos = require("./datos");
 
 const FONT = "Arial";
 
@@ -37,6 +29,7 @@ const blank = (n = 1) => Array.from({ length: n }, () => p(""));
 
 // --- table cells ---
 const COLS = [2340, 1620, 5040]; // DXA, sums to 9000 (6.25")
+const ANCHO_TABLA = COLS.reduce((a, b) => a + b, 0);
 
 const cell = (text, width, opts = {}) =>
   new TableCell({
@@ -44,7 +37,7 @@ const cell = (text, width, opts = {}) =>
     verticalAlign: VerticalAlign.CENTER,
     verticalMerge: opts.merge,
     shading: opts.shaded
-      ? { type: ShadingType.CLEAR, fill: "D9D9D9", color: "auto" }
+      ? { type: ShadingType.CLEAR, fill: opts.shaded, color: "auto" }
       : undefined,
     margins: { top: 60, bottom: 60, left: 100, right: 100 },
     children: [
@@ -61,39 +54,67 @@ const cell = (text, width, opts = {}) =>
 const headerRow = new TableRow({
   tableHeader: true,
   children: [
-    cell("ESPACIO / ELEMENTO", COLS[0], { bold: true, shaded: true }),
-    cell("ARTÍCULO", COLS[1], { bold: true, shaded: true }),
-    cell("DESCRIPCIÓN", COLS[2], { bold: true, shaded: true }),
+    cell("ESPACIO / ELEMENTO", COLS[0], { bold: true, shaded: "D9D9D9" }),
+    cell("ARTÍCULO", COLS[1], { bold: true, shaded: "D9D9D9" }),
+    cell("DESCRIPCIÓN", COLS[2], { bold: true, shaded: "D9D9D9" }),
   ],
 });
 
-// La celda del artículo se combina verticalmente: se escribe una sola vez
-// al inicio del bloque (RESTART) y se continúa vacía en las demás (CONTINUE).
-const bodyRows = rows.map(([espacio, articulo, desc], i) => {
-  const primera = i === 0 || rows[i - 1][1] !== articulo;
-  return new TableRow({
+// Cada artículo abre con una fila que cruza toda la tabla y explica de qué trata.
+const filaResumen = (art, resumen) =>
+  new TableRow({
+    cantSplit: true,
     children: [
-      cell(espacio, COLS[0], { bold: true }),
-      cell(primera ? articulo : "", COLS[1], {
-        merge: primera ? VerticalMergeType.RESTART : VerticalMergeType.CONTINUE,
-        bold: true,
-        align: AlignmentType.CENTER,
+      new TableCell({
+        columnSpan: 3,
+        width: { size: ANCHO_TABLA, type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: "F2F2F2", color: "auto" },
+        margins: { top: 90, bottom: 90, left: 100, right: 100 },
+        children: [
+          new Paragraph({
+            spacing: { after: 0, line: 252 },
+            children: [
+              new TextRun({ text: `${art}. `, font: FONT, size: 22, bold: true }),
+              new TextRun({ text: resumen, font: FONT, size: 22 }),
+            ],
+          }),
+        ],
       }),
-      cell(desc, COLS[2]),
     ],
   });
-});
+
+// Debajo del resumen van los requisitos, uno por fila. La celda del artículo se
+// escribe una sola vez (RESTART) y se continúa vacía en las demás (CONTINUE).
+const cuerpo = [];
+for (const { art, resumen, filas } of datos) {
+  cuerpo.push(filaResumen(art, resumen));
+  filas.forEach(([espacio, desc], i) => {
+    cuerpo.push(
+      new TableRow({
+        children: [
+          cell(espacio, COLS[0], { bold: true }),
+          cell(i === 0 ? art : "", COLS[1], {
+            merge: i === 0 ? VerticalMergeType.RESTART : VerticalMergeType.CONTINUE,
+            bold: true,
+            align: AlignmentType.CENTER,
+          }),
+          cell(desc, COLS[2]),
+        ],
+      })
+    );
+  });
+}
 
 const thin = { style: BorderStyle.SINGLE, size: 4, color: "808080" };
 
 const table = new Table({
   columnWidths: COLS,
-  width: { size: COLS.reduce((a, b) => a + b, 0), type: WidthType.DXA },
+  width: { size: ANCHO_TABLA, type: WidthType.DXA },
   borders: {
     top: thin, bottom: thin, left: thin, right: thin,
     insideHorizontal: thin, insideVertical: thin,
   },
-  rows: [headerRow, ...bodyRows],
+  rows: [headerRow, ...cuerpo],
 });
 
 // --- cover page ---
@@ -143,5 +164,6 @@ const doc = new Document({
 
 Packer.toBuffer(doc).then((buf) => {
   fs.writeFileSync("Medidas_basicas_de_una_casa.docx", buf);
-  console.log("OK - filas:", rows.length);
+  const filas = datos.reduce((a, b) => a + b.filas.length, 0);
+  console.log(`OK - artículos: ${datos.length}, filas: ${filas}`);
 });
